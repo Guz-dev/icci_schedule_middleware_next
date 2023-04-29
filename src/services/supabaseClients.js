@@ -16,6 +16,7 @@ export function get_supabase_clients(database='AB'){
   try{
     if(database.includes('A')){
       for (let i = 0; i < CANT_DATABASE_A; i += 2) {
+        console.log(arr_env[i])
         if(process.env[arr_env[i]] != undefined){
           const url = process.env[arr_env[i]]
           const key = process.env[arr_env[i+1]]

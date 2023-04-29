@@ -4,7 +4,6 @@ import { get_supabase_clients } from './supabaseClients.js'
 //OBTIENE DATOS DE BLOQUES_HORARIO
 export async function get_data() {
   const { supabase_a_clients, supabase_b_clients }  = get_supabase_clients('AB')
-  const DIAS = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"]
   const fetchedData = []
   const query = `semestre, 
     bloques_horario( profesor, sala, grupo, dia,
@@ -45,8 +44,8 @@ async function pushFetched(fetchedData, clients_list,table,query='*'){
         .select(query)
             
       if (data == null){
-        console.log("Fallo cliente ")   
-        //console.log(supabase_client)
+        console.log("Fallo cliente ")
+        console.log(supabase_client)
         continue
       }      
             
