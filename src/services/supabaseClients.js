@@ -1,5 +1,4 @@
 import { createClient } from '@supabase/supabase-js'
-import { readFileSync } from 'fs'
 
 const CANT_DATABASE_A = 2 * 2
 const CANT_DATABASE_B = 2 * 2

@@ -21,6 +21,7 @@ export async function get_data() {
 
 //OBTIENE DATOS DE CUALQUIER TABLA ESPECIFICA
 export async function get_data_table(table) {
+  console.log("get_data_table")
   const { supabase_a_clients, supabase_b_clients }  = get_supabase_clients('AB')
 
   const fetchedData = []
@@ -32,6 +33,7 @@ export async function get_data_table(table) {
 }
 
 async function pushFetched(fetchedData, clients_list,table,query='*'){
+  console.log("pushFetched")
   for (const supabase_client of clients_list) {
     if (!supabase_client) {
       console.warn("Skipping undefined Supabase client")
