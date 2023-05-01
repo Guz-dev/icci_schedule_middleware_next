@@ -1,6 +1,12 @@
 import { getHora } from './fecha_hora.js'
 import { get_supabase_clients } from './supabaseClients.js'
 
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1) + min) // The maximum is inclusive and the minimum is inclusive
+}
+
 //OBTIENE DATOS DE BLOQUES_HORARIO
 export async function get_data() {
   const { supabase_a_clients, supabase_b_clients }  = get_supabase_clients('AB')
@@ -66,7 +72,7 @@ async function pushFetched(fetchedData, clients_list,table,query='*'){
 
 export async function insertRamo(args) {
   if (args == undefined){
-    console.log("Fallo cliente ")
+    console.log("No hay datos de entrada")
     return false
   }
   console.log(args)    
@@ -98,7 +104,7 @@ async function insert(clients_list,table,args){
 
   for (const supabase_client of clients_list) {
     if (!supabase_client) {
-      console.warn("Skipping undefined Supabase client")
+      console.warn("undefined Supabase client")
       return false
     }
   }
@@ -124,8 +130,56 @@ async function insert(clients_list,table,args){
   }
 }
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min + 1) + min) // The maximum is inclusive and the minimum is inclusive
+export async function deleteRamo(args) {
+  if (args == undefined){
+    console.log("No hay datos de entrada")
+    return false
+  }
+  console.log(args)    
+
+  for (const key in args) {
+    if (args[key] === null || args[key] === undefined) {
+      console.log(`The '${key}' key's value is null or undefined`)
+      return false
+    }
+  }
+
+  console.log("Cliente funciono")
+  if (args.semestre <= 2){
+    const supabase_a_clients = get_supabase_clients('A')
+    await delete_(supabase_a_clients, 'ramos', args)
+  }
+  else{
+    const supabase_b_clients = get_supabase_clients('B')
+    await delete_(supabase_b_clients, 'ramos', args)
+  }
+}
+
+async function delete_(clients_list,table,args){
+  for (const supabase_client of clients_list) {
+    if (!supabase_client) {
+      console.warn("undefined Supabase client")
+      return false
+    }
+  }
+
+  for (const supabase_client of clients_list) {
+    try {
+      
+
+      const { error } = await supabase_client.from(`${table}`).delete().eq('id', args.id)
+  
+      if (error){
+        console.log("Fallo cliente")   
+        console.log(error)
+        //console.log(supabase_client)
+      }
+
+      //console.log(supabase_client)
+
+    } catch (error) {
+      console.error(error)
+      break // Try fetching data from the next Supabase client
+    }
+  }
 }
