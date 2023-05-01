@@ -92,6 +92,7 @@ export async function insertRamo(args) {
 async function insert(clients_list,table,args){
   const date = getHora()
     
+  args['id'] = getRandomIntInclusive(50, 10000)
   args['fecha'] = date
   console.log(args)
 
@@ -104,8 +105,7 @@ async function insert(clients_list,table,args){
 
   for (const supabase_client of clients_list) {
     try {
-      args['id'] = await supabase_client.from(`${table}`).select('id').max('id') 
-      args['id'] = args['id'] + 1
+      
 
       const { error } = await supabase_client.from(`${table}`).insert(args)
   
@@ -122,4 +122,10 @@ async function insert(clients_list,table,args){
       break // Try fetching data from the next Supabase client
     }
   }
+}
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1) + min) // The maximum is inclusive and the minimum is inclusive
 }
