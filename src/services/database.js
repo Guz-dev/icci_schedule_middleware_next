@@ -80,12 +80,12 @@ export async function insertRamo(args) {
 
   console.log("Cliente funciono")
   if (args.semestre <= 2){
-    const { supabase_a_clients } = await get_supabase_clients('A')
-    insert(supabase_a_clients, 'ramos', args)
+    const { supabase_a_clients } = get_supabase_clients('A')
+    await insert(supabase_a_clients, 'ramos', args)
   }
   else{
-    const { supabase_b_clients } = await get_supabase_clients('B')
-    insert(supabase_b_clients, 'ramos', args)
+    const { supabase_b_clients } = get_supabase_clients('B')
+    await insert(supabase_b_clients, 'ramos', args)
   }
 }
 
