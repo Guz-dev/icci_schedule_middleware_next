@@ -104,8 +104,9 @@ async function insert(clients_list,table,args){
 
   for (const supabase_client of clients_list) {
     try {
-      args['id'] = await supabase_client.select('id').from(`${table}`).max('id') + 1
-      
+      args['id'] = await supabase_client.from(`${table}`).select('id').max('id') 
+      args['id'] = args['id'] + 1
+
       const { error } = await supabase_client.from(`${table}`).insert(args)
   
       if (error){
