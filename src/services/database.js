@@ -103,26 +103,19 @@ async function insert(clients_list,table,args){
   }
 
   for (const supabase_client of clients_list) {
-    if (!supabase_client) {
-      console.warn("Skipping undefined Supabase client")
-      continue
-    }
-    
     try {
       const { error } = await supabase_client.from(`${table}`).insert(args)
   
-  
-      if (data == null){
+      if (error){
         console.log("Fallo cliente ")   
         //console.log(supabase_client)
-        continue
       }      
       console.log("Cliente funciono ")
       //console.log(supabase_client)
 
     } catch (error) {
       console.error(error)
-      continue // Try fetching data from the next Supabase client
+      break // Try fetching data from the next Supabase client
     }
   }
 }
