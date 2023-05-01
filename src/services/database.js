@@ -107,10 +107,11 @@ async function insert(clients_list,table,args){
       const { error } = await supabase_client.from(`${table}`).insert(args)
   
       if (error){
-        console.log("Fallo cliente ")   
+        console.log("Fallo cliente")   
+        console.log(error)
         //console.log(supabase_client)
-      }      
-      console.log("Cliente funciono ")
+      }
+
       //console.log(supabase_client)
 
     } catch (error) {
