@@ -10,6 +10,7 @@ function getRandomIntInclusive(min, max) {
 //OBTIENE DATOS DE BLOQUES_HORARIO
 export async function get_data() {
   const { supabase_a_clients, supabase_b_clients }  = get_supabase_clients('AB')
+  const DIAS = ['Lunes','Martes','Miercoles','Jueves','Viernes']
   const fetchedData = []
   const query = `semestre, 
     bloques_horario( profesor, sala, grupo, dia,
@@ -20,8 +21,13 @@ export async function get_data() {
   await pushFetched(fetchedData, supabase_a_clients,'semestres',query)
   await pushFetched(fetchedData, supabase_b_clients,'semestres',query)
 
+  const fetchedDataFlatten = fetchedData.flat(Infinity)
+  
+  fetchedDataFlatten.map((bloque) => { 
+    bloque.bloques_horario.dia = DIAS[bloque.bloques_horario.dia - 1]
+  })
 
-  return fetchedData
+  return fetchedDataFlatten
 }
 
 //OBTIENE DATOS DE CUALQUIER TABLA ESPECIFICA
