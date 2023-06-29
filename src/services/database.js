@@ -18,6 +18,7 @@ export async function get_data() {
       bloques_horas( inicio, termino )
     )
   `
+  
   await pushFetched(fetchedData, supabase_a_clients,'semestres',query)
   await pushFetched(fetchedData, supabase_b_clients,'semestres',query)
 

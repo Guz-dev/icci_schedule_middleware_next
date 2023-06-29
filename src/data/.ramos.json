@@ -4,75 +4,99 @@
       "id": 1,
       "ramo": "Introducción al cálculo",
       "codigo": "MA067",
-      "semestre": 1
+      "semestre": 1,
+      "fecha": "2023-04-22T22:41:42.47335"
     },
     {
       "id": 2,
       "ramo": "Taller de introducción al cálculo",
       "codigo": "MA067",
-      "semestre": 1
+      "semestre": 1,
+      "fecha": "2023-04-22T22:41:42.47335"
     },
     {
       "id": 3,
       "ramo": "Introducción al álgebra",
       "codigo": "MA069",
-      "semestre": 1
+      "semestre": 1,
+      "fecha": "2023-04-22T22:41:42.47335"
     },
     {
       "id": 4,
       "ramo": "Taller de introducción al álgebra",
       "codigo": "MA069",
-      "semestre": 1
+      "semestre": 1,
+      "fecha": "2023-04-22T22:41:42.47335"
     },
     {
       "id": 5,
       "ramo": "Introducción a ingeniería informática",
       "codigo": "CC198",
-      "semestre": 1
+      "semestre": 1,
+      "fecha": "2023-04-22T22:41:42.47335"
     },
     {
       "id": 6,
       "ramo": "Taller de programación I",
       "codigo": "CC199",
-      "semestre": 1
+      "semestre": 1,
+      "fecha": "2023-04-22T22:41:42.47335"
     },
     {
       "id": 7,
       "ramo": "Taller de desarrollo personal",
       "codigo": "CC210",
-      "semestre": 1
+      "semestre": 1,
+      "fecha": "2023-04-22T22:41:42.47335"
     },
     {
       "id": 8,
       "ramo": "Introducción a la física",
       "codigo": "FI035",
-      "semestre": 2
+      "semestre": 2,
+      "fecha": "2023-04-22T22:41:42.47335"
     },
     {
       "id": 9,
       "ramo": "Lab. Introducción a la física",
       "codigo": "FI035",
-      "semestre": 2
+      "semestre": 2,
+      "fecha": "2023-04-22T22:41:42.47335"
     },
-    { "id": 10, "ramo": "Cálculo I", "codigo": "MA601", "semestre": 2 },
+    {
+      "id": 10,
+      "ramo": "Cálculo I",
+      "codigo": "MA601",
+      "semestre": 2,
+      "fecha": "2023-04-22T22:41:42.47335"
+    },
     {
       "id": 11,
       "ramo": "Taller de cálculo I",
       "codigo": "MA601",
-      "semestre": 2
+      "semestre": 2,
+      "fecha": "2023-04-22T22:41:42.47335"
     },
-    { "id": 12, "ramo": "Álgebra I", "codigo": "MA611", "semestre": 2 },
+    {
+      "id": 12,
+      "ramo": "Álgebra I",
+      "codigo": "MA611",
+      "semestre": 2,
+      "fecha": "2023-04-22T22:41:42.47335"
+    },
     {
       "id": 13,
       "ramo": "Taller de álgebra I",
       "codigo": "MA611",
-      "semestre": 2
+      "semestre": 2,
+      "fecha": "2023-04-22T22:41:42.47335"
     },
     {
       "id": 14,
       "ramo": "Taller de programación II",
       "codigo": "CC208",
-      "semestre": 2
+      "semestre": 2,
+      "fecha": "2023-04-22T22:41:42.47335"
     },
     {
       "id": 16,
